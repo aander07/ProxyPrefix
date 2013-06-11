@@ -31,7 +31,6 @@
     ],
     "bugs": "https://github.com/aander07/ProxyPrefix/issues",
     "homepage": "https://github.com/aander07/ProxyPrefix",
-    "demo": "https://github.com/aander07/ProxyPrefix/demo.html",
     "docs": "https://github.com/aander07/ProxyPrefix",
     "dependencies": {
         "jquery": ">=1.9",

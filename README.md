@@ -66,13 +66,6 @@ $('a').ProxyPrefix();
 No server-side changes required, all of the changes to the anchor href attribute 
 happen on the fly in the browser instead.
 
-## Demo ##
-
-A [demonstration](demo.html) page is available.  In the demo, a simple form
-allows the proxy server name to be specified, accepts a URL to an online
-resource.  After encoding the URL, you can then test that the URL functions 
-correctly, using the `Test` button to open the resource via the proxy server.
-
 ## Using ProxyPrefix ##
 
 `ProxyPrefix` is built as a [jQuery](http://www.jquery.com/) Plugin, and 
