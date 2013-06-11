@@ -1,0 +1,40 @@
+{
+    "name": "ProxyPrefix",
+    "title": "Proxy Prefix",
+    "description": "A jQuery plugin for adding a proxy prefix to URLs.",
+    "keywords": [
+        "proxy",
+        "prefix",
+        "ezproxy"
+    ],
+    "version": "1.0.0",
+    "categories": [
+        "Utilities"
+    ],
+    "author": {
+            "name": "Andrew Anderson",
+            "email": "andrew@lirn.net",
+            "url": "http://www.lirn.net/"
+    },
+    "maintainers": [
+        {
+            "name": "Andrew Anderson",
+            "email": "andrew@lirn.net",
+            "url": "http://www.lirn.net/"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "GPLv3",
+            "url": "http://www.gnu.org/licenses/gpl-3.0-standalone.html"
+        }
+    ],
+    "bugs": "https://github.com/aander07/ProxyPrefix/issues",
+    "homepage": "https://github.com/aander07/ProxyPrefix",
+    "demo": "https://github.com/aander07/ProxyPrefix/demo.html",
+    "docs": "https://github.com/aander07/ProxyPrefix",
+    "dependencies": {
+        "jquery": ">=1.9",
+        "URIjs": ">=1.10.2"
+    }
+}
