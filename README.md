@@ -69,7 +69,7 @@ happen on the fly in the browser instead.
 ## Using ProxyPrefix ##
 
 `ProxyPrefix` is built as a [jQuery](http://www.jquery.com/) Plugin, and 
-uses the [URIjs](medialize.github.io/URI.js/) library for URI parsing.
+uses the [URIjs](http://medialize.github.io/URI.js/) library for URI parsing.
 
 ## Examples ##
 
