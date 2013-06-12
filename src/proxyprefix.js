@@ -136,10 +136,9 @@
                         uri.removeSearch( value );
                     }
                 });
-            } catch ( e if e instanceof TypeError ) { }
+            } catch ( err ) {}
             $( el ).attr( options.attribute, uri.href() );
         },
-
 
         append_param: function(el, options, uri) {
             // Add any parameters for this web site that are required for successful
@@ -151,7 +150,7 @@
                         uri.addSearch( key, value );
                     }
                 });
-            } catch ( e if e instanceof TypeError ) { }
+            } catch ( err ) {}
             $( el ).attr( options.attribute, uri.href() );
         },
 
