@@ -1,4 +1,6 @@
 $(function(){
+    var proxy = "proxy.example.edu"
+
     test("Plugin loaded", 1, function() {
         ok(jQuery().ProxyPrefix());
     });
@@ -50,7 +52,7 @@ $(function(){
         var fixture = $( "#qunit-fixture" );
 
         fixture.append('<a href="proxy.example.edu">proxy.example.edu</a>');
-        fixture.children('a').ProxyPrefix();
+        fixture.children('a').ProxyPrefix( { hostnames: new Array( proxy ) } );
         equal( fixture.children('a').attr('href'), 'http://proxy.example.edu/login?qurl=http%3A%2F%2Fproxy.example.edu' );
     });
 
