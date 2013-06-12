@@ -77,9 +77,9 @@ uses the [URIjs](http://medialize.github.io/URI.js/) library for URI parsing.
 $('a').ProxyPrefix();
 ```
 
-### hostnames ###
-
 This will apply the default options to all HTML anchor elements on the page.
+
+### hostnames ###
 
 ```javascript
 $('a').ProxyPrefix( { hostnames: new Array( 
