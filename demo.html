@@ -8,13 +8,14 @@
 <meta content="utf-8" http-equiv="encoding">
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.css" type="text/css">
 <style>
+img { border: 0; }
 #encoder input { width:80%; margin:0.5em;}
 span.ui-icon { display: inline-block; }
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
-<script src="test/URIjs/URI.min.js"></script>
-<script src="src/proxyprefix.js"></script>
+<script src="js/URI.min.js"></script>
+<script src="js/proxyprefix.min.js"></script>
 <script>
 $(document).ready( function() {
   var proxy = $('input#proxy_url');
@@ -62,11 +63,19 @@ $(document).ready( function() {
 </head>
 <body>
 <header>
-<img src="//proxyprefix.appspot.com/images/lirn_logo_48x275.gif" alt="LIRN" />
+<a href="http://www.lirn.net/"><img src="/img/lirn_logo_48x275.gif" alt="LIRN" /></a>
 <h1>LIRN Online Proxy URL Encoder</h1>
 </header>
 <section>
 
+<p>
+Welcome to the 
+<a href="https://github.com/aander07/ProxyPrefix">ProxyPrefix</a> demonstration page.
+</p>
+<p>
+Enter your proxy host name below, copy a URL into the Resource URL field, then use the
+Prefix button to encode the URL for use with your proxy server.
+</p>
 <form id="encoder">
 <label for="proxy_url">Proxy URL</label>
 <input id="proxy_url" type="url" placeholder="Enter proxy URL here" />
@@ -90,4 +99,12 @@ Copyright &copy; 2013 <a href="http://www.lirn.net/">Library &amp; and Informati
 </p>
 </footer>
 </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-794141-7', 'proxyprefix.appspot.com');
+  ga('send', 'pageview');
+</script>
 </html>
