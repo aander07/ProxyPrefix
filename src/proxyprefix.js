@@ -167,7 +167,6 @@
             var datamap = uri.search( true );
             // Decode this to pick up any embedded fragments
             var quri = URI( URI.decode( datamap[ param ] ) ); 
-            console.log( quri._parts );
             // Preserve the HTML fragment
             if ( uri.fragment() !== '' ) {
                 if ( quri.path() !== "undefined" ) {
