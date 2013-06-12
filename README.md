@@ -14,7 +14,7 @@ nothing to address either of these issues.
 
 With ProxyPrefix, there is now a front-end solution available that does 
 not care if it is being run on a static page, served from a LMS, or any 
-other server backend technology (PHP, Java, Python, Perl, ASP, etc).
+other server back-end technology (PHP, Java, Python, Perl, ASP, etc).
 
 You start with a simple list of resources on a web page.  How the links 
 are inserted into the web page is immaterial:
