@@ -38,7 +38,7 @@ that starts looking more like this:
 
 ```html
 Online Resources:
-<ul><li><a href="http://proxy.example.edu/login?qurl=http%3A%2F%2Fbooks.google.com%2F">Google Books</a></li>
+<ul><li><a href="http://proxy.example.edu/login?qurl=http%3A%2F%2Fbooks.google.com">Google Books</a></li>
 <li><a href="http://proxy.example.edu/login?qurl=http%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed">PUBMED</a></li>
 <li><a href="http://proxy.example.edu/login?qurl=http%3A%2F%2Fwww.ipl.org">Internet Public Library</a></li
 >
