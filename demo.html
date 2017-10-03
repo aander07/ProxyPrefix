@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width">
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.css" type="text/css">
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.css" type="text/css">
 <style>
 img { border: 0; }
 #encoder input { width:80%; margin:0.5em;}
@@ -14,8 +14,8 @@ span.ui-icon { display: inline-block; }
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
-<script src="js/URI.min.js"></script>
-<script src="js/proxyprefix.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.0/URI.min.js"></script>
+<script src="proxyprefix.min.js"></script>
 <script>
 $(document).ready( function() {
   var proxy = $('input#proxy_url');
@@ -63,7 +63,16 @@ $(document).ready( function() {
 </head>
 <body>
 <header>
-<a href="http://www.lirn.net/"><img src="/img/lirn_logo_48x275.gif" alt="LIRN" /></a>
+<a href="http://www.lirn.net/">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="title" aria-describedby="desc" role="image" width="275px" height="48px" viewBox="0 0 275 48" preserveAspectRatio="none">
+<title>LIRN</title>
+<a xlink:href="/">
+<g>
+<image width="275" height="48" xlink:href="data:image/gif;base64,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"></image>
+</g>
+</a>
+</svg>
+</a>
 <h1>LIRN Online Proxy URL Encoder</h1>
 </header>
 <section>
@@ -97,7 +106,7 @@ Prefix button to encode the URL for use with your proxy server.
 
 <footer>
 <p style="font-size:small;">
-Copyright &copy; 2013 <a href="http://www.lirn.net/">Library &amp; and Information Resources Network, Inc.</a>
+Copyright &copy; 2017 <a href="https://www.lirn.net/">Library &amp; and Information Resources Network, Inc.</a>
 </p>
 </footer>
 </body>

@@ -60,7 +60,7 @@
 
         init: function() {
             // Normalize the URL to AvOiD MiXeD CaSe StrING COMariSON
-            uri = URI( $( this.element ).attr( this.options.attribute ) ).normalize();
+            var uri = URI( $( this.element ).attr( this.options.attribute ) ).normalize();
             // Perform validation first to avoid doing all the processing 
             // just to throw it away at the end
             if ( this.validate(this.element, this.options, uri) === false ) {
@@ -187,7 +187,7 @@
                 path: options.loginpath
             });
             // Try to pull the qurl query parameter from the proxy url
-            qurl =  this.extract_qurl( this.element, this.options, uri ).href();
+            var qurl =  this.extract_qurl( this.element, this.options, uri ).href();
             // Try to pull the url query parameter from the proxy url
             if ( qurl === "undefined" ) {
                 qurl =  this.extract_url( this.element, this.options, uri ).href();
@@ -201,6 +201,10 @@
         },
 
         prefix: function(el, options, uri) {
+            // Assume Proxy By Host until we can prove otherwise
+            var rewriteByHost = true;
+            var rewriteByPath = false;
+
             // Add the proxy prefix to the URL.  Start by looking for the proxy
             // hostname within the URL (cut-and-paste from the location bar in
             // the browser or permalinks from some vendors)
@@ -209,6 +213,59 @@
                 // Also remove the leading '.' that separates the vendor web site
                 // from the proxy hostname
                 uri.host( uri.host().slice( 0, offset - 1 ) );
+
+                // Strip off leading session & server information for rewriteByHost
+                offset = uri.host().indexOf( '.http.' );
+                if ( offset > 0 ) {
+                    uri.host( uri.host().slice( offset + 6 ) );
+                }
+                offset = uri.host().indexOf( '-https-' );
+                if ( offset > 0 ) {
+                    uri.host( uri.host().slice( offset + 7 ) );
+                }
+
+                // If the hostname has a '.' (e.g. vendor.com), then it was a
+                // ProxyByPath hostname, and does not need to be rewritten.
+                // Otherwise, the name contains no '.'s and needs to be
+                // processed to convert the '-'s back to '.'s for https URIs
+                if ( uri.protocol() === 'https' && uri.host().search(/\./) < 1 ) {
+                    uri.host( uri.host().replace( /-/g, '.') );
+
+                    // Muse Proxy adds an extra '-' if a hostname includes
+                    // a '-' in the original hostname; detect this case
+                    // and cleanup (the "ABC-CLIO" case), since no valid
+                    // hostname should have ".." in it
+                    uri.host( uri.host().replace( /\.\./, '-') );
+
+                    // XXX: waiting to hear back from OCLC on how EZproxy
+                    // handles this, since it does not duplicate the '-'
+                    // in the hostname, but keeps a single '-' value instead
+
+                    // Hack this work-around in place for now for known
+                    // corner cases with EZproxy URL handling
+                    uri.host( uri.host().replace( /databases\.abc\.clio\.com/, 'databases.abc-clio.com' ) );
+                }
+
+            } else {
+                // Proxy hostname was not in the uri, assume Proxy By Path instead
+                rewriteByHost = false;
+                rewriteByPath = true;
+            }
+
+            // Look for Proxy By Path elements
+            if ( rewriteByPath === true ) {
+                var segmentArray = uri.segment();
+                for ( var idx = 0; idx < segmentArray.length; idx++) {
+                    if ( segmentArray[ idx ].startsWith( 'MuseProtocol' ) ) {
+                        uri.protocol( segmentArray[ idx ].split('=')[1] );
+                    }
+                    if ( segmentArray[ idx ].startsWith( 'MuseHost' ) ) {
+                        uri.host( segmentArray[ idx ].split('=')[1] );
+                    }
+                    if ( segmentArray[ idx ] === 'MusePath' ) {
+                        uri.path( segmentArray.slice( idx + 1 ).join('/') );
+                    }
+                }
             }
 
             var target = URI({
