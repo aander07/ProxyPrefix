@@ -34,7 +34,7 @@
     "demo": "http://proxyprefix.appspot.com/demo.html",
     "docs": "https://github.com/aander07/ProxyPrefix",
     "dependencies": {
-        "jquery": ">=1.9",
+        "jquery": "~>3.6.4",
         "URIjs": ">=1.10.2"
     }
 }
