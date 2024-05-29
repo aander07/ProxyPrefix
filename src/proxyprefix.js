@@ -102,10 +102,10 @@
         },
 
         validate: function(el, options, uri) {
-            // Not all browsers do HTML5 URL type handling the same, so add a sane
-            // value for the URL's protocol if one was not provided
+            // Check if the protocol is set
             if ( uri.protocol() === '' ) {
-                uri.protocol( 'http' );
+                $.error( 'Missing protocol: ' + uri.href() );
+                return false;
             }
             // Check if the protocol is supported by the proxy server
             if ( this.options['protocols'].indexOf( uri.protocol() ) < 0 ) {

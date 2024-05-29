@@ -47,14 +47,14 @@ $(function(){
         assert.equal( fixture.children('a').attr('href'), 'https://fe80:0000:0000:0000:0204:61ff:fe9d:f156/');
     });
 
-    // FIXME: URLjs does not appear to support RFC2732 IPv6 literal addresses
+    // FIXME: URIjs does not appear to support RFC2732 IPv6 literal addresses
 
     QUnit.test( "Missing protocol", function( assert ) {
         var fixture = $( "#qunit-fixture" );
 
         fixture.append('<a href="proxy.example.edu">proxy.example.edu</a>');
         fixture.children('a').ProxyPrefix( { hostnames: new Array( proxy ) } );
-        assert.equal( fixture.children('a').attr('href'), 'http://proxy.example.edu/login?qurl=http%3A%2F%2Fproxy.example.edu' );
+        assert.equal( fixture.children('a').attr('href'), 'proxy.example.edu' );
     });
 
     QUnit.test( "Unsupported protocol test Name (FTP)", function( assert ) {
